@@ -8,8 +8,8 @@ const app = express();
 const compiler = webpack(config);
 
 app.use(webpackDevMiddleware(compiler, {
-  publicPath: config.output.publicPath
+  publicPath: config.output.publicPath,
 }));
 app.use(webpackHotMiddleware(compiler));
 
-app.listen(3000, () => console.log("Listening on port 3000"));
+app.listen(3000, () => console.log('Listening on port 3000'));
