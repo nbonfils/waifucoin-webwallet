@@ -1,5 +1,6 @@
 import React from 'react';
-import Clock from './Clock';
+
+import Header from './Header';
 
 /**
  * Root react component
@@ -12,9 +13,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Hello, World</h1>
-        <p>Je m&#39;appelle Nils :)</p>
-        <Clock />
+        <Header name='test' />
       </div>
     );
   }

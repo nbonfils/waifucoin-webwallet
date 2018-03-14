@@ -2,7 +2,6 @@ import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
-import ReactHotLoader from 'react-hot-loader';
 
 const config = {
   entry: [
