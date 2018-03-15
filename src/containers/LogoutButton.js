@@ -1,6 +1,8 @@
 import React from 'react';
 import Cookies from 'universal-cookie';
 
+import {Button} from 'antd';
+
 /**
  * LogoutButton logout the user (cookies based auth)
  */
@@ -19,9 +21,9 @@ export default class LogoutButton extends React.Component {
    */
   render() {
     return (
-      <button onClick={this.logout}>
+      <Button type='primary' icon='logout' onClick={this.logout}>
         Logout
-      </button>
+      </Button>
     );
   }
 }

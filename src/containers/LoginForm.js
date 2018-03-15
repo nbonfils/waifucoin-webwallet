@@ -15,8 +15,8 @@ export default class LoginForm extends React.Component {
   render() {
     return (
       <form>
-        <LoginField field='name' />
-        <LoginField field='password' />
+        <LoginField field='Username' />
+        <LoginField field='Password' />
         <ManageButton />
         <CreateButton />
       </form>

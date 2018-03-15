@@ -18,7 +18,7 @@ export default class LogInfo extends React.Component {
 
     return (
       <div>
-        {this.props.name} | <LogoutButton />
+        {this.props.name} <LogoutButton />
       </div>
     );
   }

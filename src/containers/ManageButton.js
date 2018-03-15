@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {Button} from 'antd';
+
 /**
  * ManageButton is a button to access the manage dashboard
  */
@@ -10,9 +12,9 @@ export default class LoginField extends React.Component {
    */
   render() {
     return (
-      <button>
+      <Button type='primary'>
         Manage
-      </button>
+      </Button>
     );
   }
 }
