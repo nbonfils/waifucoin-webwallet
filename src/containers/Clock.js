@@ -7,7 +7,7 @@ export default class Clock extends React.Component {
   /**
    * Clock constructor
    * @constructor
-   * @param {Props} props object
+   * @param {Object} props object
    */
   constructor(props) {
     super(props);
