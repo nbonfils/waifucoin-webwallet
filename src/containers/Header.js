@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import {Row, Col} from 'antd';
+
 import LogInfo from './LogInfo';
 
 /**
@@ -14,10 +16,16 @@ export default class Header extends React.Component {
   render() {
     return (
       <header>
-        <LogInfo name={this.props.name} />
-        <h1>
-          WaifuCoin
-        </h1>
+        <Row>
+          <Col span={10} offset={7}>
+            <h1>
+              WaifuCoin
+            </h1>
+          </Col>
+          <Col span={4} offset={2}>
+            <LogInfo name={this.props.name} />
+          </Col>
+        </Row>
       </header>
     );
   }

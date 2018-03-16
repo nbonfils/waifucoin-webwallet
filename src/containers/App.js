@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {Layout} from 'antd';
+
 import Header from './Header';
 import LoginForm from './LoginForm';
 
@@ -30,10 +32,21 @@ export default class App extends React.Component {
       <LoginForm />
     );
     return (
-      <div>
-        <Header name={this.state.name} />
-        {content}
-      </div>
+      <Layout>
+        <Layout.Header>
+          <Header name={this.state.name} />
+        </Layout.Header>
+
+        <Layout.Content>
+          {content}
+        </Layout.Content>
+
+        <Layout.Footer>
+          <footer>
+            Blazebone Corp ©2018 Created by Nils Bonfils
+          </footer>
+        </Layout.Footer>
+      </Layout>
     );
   }
 }
