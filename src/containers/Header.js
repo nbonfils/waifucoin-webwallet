@@ -22,7 +22,7 @@ export default class Header extends React.Component {
               WaifuCoin
             </h1>
           </Col>
-          <Col span={4} offset={2}>
+          <Col span={4} offset={3}>
             <LogInfo name={this.props.name} />
           </Col>
         </Row>

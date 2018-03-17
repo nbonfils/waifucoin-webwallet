@@ -26,6 +26,7 @@ export default class LoginField extends React.Component {
 
     return (
       <Input
+        className={this.props.className}
         placeholder={this.props.field}
         type={this.props.field == 'Password' ? 'password' : 'text'}
         prefix={icon}
@@ -38,5 +39,6 @@ export default class LoginField extends React.Component {
  * Typechecking for props
  */
 LoginField.propTypes = {
+  className: PropTypes.string,
   field: PropTypes.string,
 };

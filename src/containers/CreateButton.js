@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {Button} from 'antd';
 
@@ -12,9 +13,16 @@ export default class CreateButton extends React.Component {
    */
   render() {
     return (
-      <Button>
+      <Button className={this.props.className} >
         Create
       </Button>
     );
   }
 }
+
+/**
+ * Typechecking for props
+ */
+CreateButton.propTypes = {
+  className: PropTypes.string,
+};
