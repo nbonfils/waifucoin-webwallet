@@ -1,9 +1,11 @@
 import React from 'react';
 
 import {Layout} from 'antd';
+const {Header, Content, Footer} = Layout;
 
-import Header from './Header';
+import AppHeader from './Header';
 import LoginForm from './LoginForm';
+import ManageDashboard from './ManageDashboard';
 
 /**
  * Root react component
@@ -29,23 +31,23 @@ export default class App extends React.Component {
     const content = (this.state.name == '') ? (
       <LoginForm />
     ) : (
-      <LoginForm />
+      <ManageDashboard />
     );
     return (
       <Layout>
-        <Layout.Header>
-          <Header name={this.state.name} />
-        </Layout.Header>
+        <Header>
+          <AppHeader name={this.state.name} />
+        </Header>
 
-        <Layout.Content>
+        <Content>
           {content}
-        </Layout.Content>
+        </Content>
 
-        <Layout.Footer>
+        <Footer>
           <footer>
             Blazebone Corp ©2018 Created by Nils Bonfils
           </footer>
-        </Layout.Footer>
+        </Footer>
       </Layout>
     );
   }
