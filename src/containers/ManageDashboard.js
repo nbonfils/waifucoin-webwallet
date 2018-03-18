@@ -4,6 +4,7 @@ import {Row, Col} from 'antd';
 
 import WalletBalance from './WalletBalance';
 import WalletSend from './WalletSend';
+import WalletHistory from './WalletHistory';
 
 /**
  * ManageDashboard is the dashboard displaying info about your wallet
@@ -24,6 +25,11 @@ export default class ManageDashboard extends React.Component {
         <Row>
           <Col>
             <WalletSend />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <WalletHistory />
           </Col>
         </Row>
       </div>
