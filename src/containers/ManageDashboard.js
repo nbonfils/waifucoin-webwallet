@@ -18,7 +18,7 @@ export default class ManageDashboard extends React.Component {
     return (
       <div>
         <Row>
-          <Col>
+          <Col span={20} offset={2} >
             <WalletBalance />
           </Col>
         </Row>

@@ -14,6 +14,7 @@ export default class WalletBalance extends React.Component {
     const columns = [{
       title: 'Currency',
       dataIndex: 'currency',
+      width: 100,
       render: (text) => <strong>{text}</strong>,
     }, {
       title: 'Amount',
@@ -24,7 +25,7 @@ export default class WalletBalance extends React.Component {
       <Table
         title={() => 'Balance'}
         columns={columns}
-        dataSource={[{currency: 'WFC', amount: '1000.00'}]}
+        dataSource={[{key: '1', currency: 'WFC', amount: '1000.00'}]}
         showHeader={false}
         pagination={false}
         bordered

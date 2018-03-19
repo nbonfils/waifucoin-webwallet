@@ -1,7 +1,12 @@
 import path from 'path';
+import fs from 'fs';
 import webpack from 'webpack';
+import lessToJs from 'less-vars-to-js';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
+
+const themeVariable = lessToJs(fs.readFileSync(path.join(__dirname,
+'./src/custom-theme.less'), 'utf-8'));
 
 const config = {
   entry: [
@@ -37,6 +42,19 @@ const config = {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
           'file-loader',
+        ],
+      },
+      {
+        test: /\.less$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          {loader: 'less-loader',
+            options: {
+              javascriptEnabled: true,
+              modifyVars: themeVariable,
+            },
+          },
         ],
       },
     ],
