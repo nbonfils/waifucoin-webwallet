@@ -53,4 +53,15 @@ footer {
 
 .send-button {
   height: auto;
+  padding: 10px 20px;
+}
+
+.tr-sent {
+  color: #FF5722;
+  font-weight: bold;
+}
+
+.tr-rcv {
+  color: #4CAF50;
+  font-weight: bold;
 }
