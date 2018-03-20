@@ -23,12 +23,12 @@ export default class ManageDashboard extends React.Component {
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col span={20} offset={2} >
             <WalletSend />
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col span={20} offset={2} >
             <WalletHistory />
           </Col>
         </Row>

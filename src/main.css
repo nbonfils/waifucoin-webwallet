@@ -10,6 +10,10 @@ footer {
   text-align: center;
 }
 
+/*
+ * ant design classes
+ */
+
 #root, .ant-layout {
   position: relative;
   height: 100%;
@@ -18,6 +22,14 @@ footer {
 .ant-layout-content {
   padding-top: 40px;
 }
+
+.ant-row {
+  margin-bottom: 40px;
+}
+
+/*
+ * custom classes
+ */
 
 .form-field {
   margin-top: 10px;
@@ -29,4 +41,16 @@ footer {
 
 .create-button {
   text-align: right;
+}
+
+.send-input {
+  border: none;
+}
+
+.send-input:focus {
+  box-shadow: none;
+}
+
+.send-button {
+  height: auto;
 }
