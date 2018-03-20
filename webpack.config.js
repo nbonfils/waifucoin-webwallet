@@ -62,7 +62,6 @@ const config = {
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      title: 'WaifuCoin Webwallet',
       template: 'template.html',
       inject: 'body',
     }),
