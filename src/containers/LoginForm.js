@@ -20,10 +20,7 @@ export default class LoginForm extends React.Component {
         <Row>
           <Col span={6} offset={9}>
             <LoginField className='form-field' field='Username' />
-          </Col>
-        </Row>
-        <Row>
-          <Col span={6} offset={9}>
+            <br />
             <LoginField className='form-field' field='Password' />
           </Col>
         </Row>

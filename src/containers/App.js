@@ -1,4 +1,6 @@
 import React from 'react';
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 import {Layout} from 'antd';
 const {Header, Content, Footer} = Layout;
@@ -19,8 +21,18 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: 'John',
+      name: '',
     };
+  }
+
+  /**
+   * Execute before component is rendered for the first time
+   */
+  componentWillMount() {
+    const loginInfo = cookies.get('waifucoinlogin') || {};
+    this.setState({
+      name: loginInfo.name || '',
+    });
   }
 
   /**

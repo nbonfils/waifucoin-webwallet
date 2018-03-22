@@ -8,6 +8,59 @@ import {Input, Icon} from 'antd';
  */
 export default class LoginField extends React.Component {
   /**
+   * Constructor function
+   * @constructor
+   * @param {Object} props object
+   */
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      value: this.props.value || '',
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  /**
+   * Component lifecycle method
+   * @param {Object} nextProps object
+   */
+  componentWillReceiveProps(nextProps) {
+    if ('value' in nextProps) {
+      this.setState({
+        value: nextProps.value,
+      });
+    }
+  }
+
+  /**
+   * Handles change in the Input field
+   * @param {Object} e is the event
+   */
+  handleChange(e) {
+    const value = e.target.value;
+    if (!('value' in this.props)) {
+      this.setState({
+        value: value,
+      });
+    }
+
+    this.triggerChange(value);
+  }
+
+  /**
+   * Event to pass value to Form
+   * @param {String} changedValue is the value that changed
+   */
+  triggerChange(changedValue) {
+    const onChange = this.props.onChange;
+    if (onChange) {
+      onChange(Object.assign({}, this.state, changedValue));
+    }
+  }
+
+  /**
    * Render function
    * @return {Component} A label with an input field
    */
@@ -30,6 +83,8 @@ export default class LoginField extends React.Component {
         placeholder={this.props.field}
         type={this.props.field == 'Password' ? 'password' : 'text'}
         prefix={icon}
+        value={this.state.value}
+        onChange={this.handleChange}
       />
     );
   }
@@ -41,4 +96,6 @@ export default class LoginField extends React.Component {
 LoginField.propTypes = {
   className: PropTypes.string,
   field: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
 };
