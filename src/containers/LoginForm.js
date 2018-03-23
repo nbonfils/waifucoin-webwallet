@@ -1,38 +1,114 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import {Row, Col} from 'antd';
+import {Row, Col, Button, Form} from 'antd';
+const FormItem = Form.Item;
 
 import LoginField from './LoginField';
-import ManageButton from './ManageButton';
-import CreateButton from './CreateButton';
 
 /**
  * LoginForm is the login form in order to create or manage a wallet
  */
-export default class LoginForm extends React.Component {
+class LoginForm extends React.Component {
+  /**
+   * Constructor function
+   * @constructor
+   * @param {Object} props object
+   */
+  constructor(props) {
+    super(props);
+
+    this.handleManage = this.handleManage.bind(this);
+    this.handleCreate = this.handleCreate.bind(this);
+  }
+
+  /**
+   * Handles when click on "Manage" button
+   * @param {Object} e is the event
+   */
+  handleManage(e) {
+  }
+
+  /**
+   * Handles when click on "Create" button
+   * @param {Object} e is the event
+   */
+  handleCreate(e) {
+  }
+
   /**
    * Render function
    * @return {Component} The login form with its fields and buttons
    */
   render() {
+    const {getFieldDecorator} = this.props.form;
+
     return (
-      <form>
+      <Form>
         <Row>
           <Col span={6} offset={9}>
-            <LoginField className='form-field' field='Username' />
-            <br />
-            <LoginField className='form-field' field='Password' />
+            <FormItem>
+              {
+                getFieldDecorator('username', {
+                  initialValue: {value: ''},
+                  rules: [{
+                    required: true,
+                    message: 'Please input your Username!',
+                  }],
+                })(
+                  <LoginField className='form-field' field='Username' />
+                )
+              }
+            </FormItem>
+            <FormItem>
+              {
+                getFieldDecorator('password', {
+                  initialValue: {value: ''},
+                  rules: [{
+                    required: true,
+                    message: 'Please input your Password!',
+                  }],
+                })(
+                  <LoginField className='form-field' field='Password' />
+                )
+              }
+            </FormItem>
           </Col>
         </Row>
         <Row>
           <Col span={3} offset={9} className='manage-button' >
-            <ManageButton className='form-button' />
+            <FormItem>
+              <Button
+                onClick={this.handleManage}
+                className='form-button'
+                type='primary'
+              >
+                Manage
+              </Button>
+            </FormItem>
           </Col>
           <Col span={3} className='create-button' >
-            <CreateButton className='form-button' />
+            <FormItem>
+              <Button
+                onClick={this.handleCreate}
+                className='form-button'
+              >
+                Create
+              </Button>
+            </FormItem>
           </Col>
         </Row>
-      </form>
+      </Form>
     );
   }
 }
+
+/**
+ * Typechecking for props
+ */
+LoginForm.propTypes = {
+  form: PropTypes.object,
+};
+
+const WrappedLoginForm = Form.create()(LoginForm);
+export default WrappedLoginForm;

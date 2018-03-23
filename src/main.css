@@ -27,9 +27,17 @@ footer {
   margin-bottom: 40px;
 }
 
+form .ant-row {
+  margin-bottom: 0px;
+}
+
 /*
  * custom classes
  */
+
+.form-button {
+  margin-top: 20px;
+}
 
 .form-field {
   margin-top: 10px;
