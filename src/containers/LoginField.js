@@ -15,9 +15,8 @@ export default class LoginField extends React.Component {
   constructor(props) {
     super(props);
 
-    const value = this.props.value || {};
     this.state = {
-      value: value.value || '',
+      value: this.props.value || '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -30,7 +29,9 @@ export default class LoginField extends React.Component {
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
       const value = nextProps.value;
-      this.setState(value);
+      this.setState({
+        value: value,
+      });
     }
   }
 
@@ -44,7 +45,7 @@ export default class LoginField extends React.Component {
       this.setState({value});
     }
 
-    this.triggerChange({value});
+    this.triggerChange(value);
   }
 
   /**
@@ -54,7 +55,7 @@ export default class LoginField extends React.Component {
   triggerChange(changedValue) {
     const onChange = this.props.onChange;
     if (onChange) {
-      onChange(Object.assign({}, this.state, changedValue));
+      onChange(changedValue);
     }
   }
 
@@ -94,6 +95,6 @@ export default class LoginField extends React.Component {
 LoginField.propTypes = {
   className: PropTypes.string,
   field: PropTypes.string,
-  value: PropTypes.object,
+  value: PropTypes.string,
   onChange: PropTypes.func,
 };

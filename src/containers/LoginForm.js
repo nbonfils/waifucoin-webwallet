@@ -27,6 +27,15 @@ class LoginForm extends React.Component {
    * @param {Object} e is the event
    */
   handleManage(e) {
+    e.preventDefault();
+
+    const {validateFields} = this.props.form;
+
+    validateFields((err, values) => {
+      if (!err) {
+        console.log('values: ', values);
+      }
+    });
   }
 
   /**
@@ -50,7 +59,7 @@ class LoginForm extends React.Component {
             <FormItem>
               {
                 getFieldDecorator('username', {
-                  initialValue: {value: ''},
+                  initialValue: '',
                   rules: [{
                     required: true,
                     message: 'Please input your Username!',
@@ -63,7 +72,7 @@ class LoginForm extends React.Component {
             <FormItem>
               {
                 getFieldDecorator('password', {
-                  initialValue: {value: ''},
+                  initialValue: '',
                   rules: [{
                     required: true,
                     message: 'Please input your Password!',
